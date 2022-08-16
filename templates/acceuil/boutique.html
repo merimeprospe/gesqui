@@ -1,0 +1,363 @@
+{%  extends 'main.html' %}
+
+{% load static %}
+
+{% block contenu %}
+<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li><a href="{% url 'acceuil' %}">Acceuil</a></li>
+						<li class="active"><a href="{% url 'boutique' %}">Boutique</a></li>
+						<li><a href="{% url 'service' %}">Nos-services</a></li>
+						<li><a href="{% url 'a_propos' %}">Apropos</a></li>
+						<li><a href="{% url 'contact' %}">Contact</a></li>
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+    <!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="breadcrumb-tree">
+							<li><a href="{% url 'acceuil' %}">Accueil</a></li>
+							<li><a href="{% url 'boutique' %}">Boutique</a></li>
+							<li class="active">toutes les  Categories</li>
+							<!--<li><a href="#">Accessoires</a></li>
+							<li class="active">carreaux (227,490 Results)</li>-->
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /BREADCRUMB -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- ASIDE -->
+					<div id="aside" class="col-md-3">
+						<!-- aside Widget -->
+						<div class="aside">
+							<h3 class="aside-title">Categories</h3>
+							<div class="checkbox-filter">
+								{% for c in cathegorie %}
+								<div class="input-checkbox">
+									<input type="checkbox" id="category-1">
+									<label for="category-1">
+										<a href="{% url 'page_cathegorie1' c.id  %}">
+											{{ c.nom_cathegorie }}
+											<small></small>
+										</a>
+									</label>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<!-- /aside Widget -->
+
+						<!-- aside Widget
+						<div class="aside">
+							<h3 class="aside-title">Prix</h3>
+							<div class="price-filter">
+								<div id="price-slider"></div>
+								<div class="input-number price-min">
+									<input id="price-min" type="number">
+									<span class="qty-up">+</span>
+									<span class="qty-down">-</span>
+								</div>
+								<span>-</span>
+								<div class="input-number price-max">
+									<input id="price-max" type="number">
+									<span class="qty-up">+</span>
+									<span class="qty-down">-</span>
+								</div>
+							</div>
+						</div>
+						 /aside Widget -->
+
+						<!-- aside Widget
+						<div class="aside">
+							<h3 class="aside-title">Marque</h3>
+							<div class="checkbox-filter">
+								<div class="input-checkbox">
+									<input type="checkbox" id="brand-1">
+									<label for="brand-1">
+										<span></span>
+
+										<small></small>
+									</label>
+								</div>
+								<div class="input-checkbox">
+									<input type="checkbox" id="brand-2">
+									<label for="brand-2">
+										<span></span>
+
+										<small></small>
+									</label>
+								</div>
+								<div class="input-checkbox">
+									<input type="checkbox" id="brand-3">
+									<label for="brand-3">
+										<span></span>
+
+										<small></small>
+									</label>
+								</div>
+								<div class="input-checkbox">
+									<input type="checkbox" id="brand-4">
+									<label for="brand-4">
+										<span></span>
+
+										<small></small>
+									</label>
+								</div>
+								<div class="input-checkbox">
+									<input type="checkbox" id="brand-5">
+									<label for="brand-5">
+										<span></span>
+
+										<small></small>
+									</label>
+								</div>
+								<div class="input-checkbox">
+									<input type="checkbox" id="brand-6">
+									<label for="brand-6">
+										<span></span>
+
+										<small></small>
+									</label>
+								</div>
+							</div>
+						</div>-->
+						<!-- /aside Widget -->
+
+						<!-- aside Widget
+						<div class="aside">
+							<h3 class="aside-title">Meilleur Vente</h3>
+							<div class="product-widget">
+								<div class="product-img">
+									<img src="./img/" alt="">
+								</div>
+								<div class="product-body">
+									<p class="product-category">Categories</p>
+									<h3 class="product-name"><a href="#">les noms des produits vont ici</a></h3>
+									<h4 class="product-price">980.00FCFA <del class="product-old-price">990.00FCFA</del></h4>
+								</div>
+							</div>
+
+							<div class="product-widget">
+								<div class="product-img">
+									<img src="./img/" alt="">
+								</div>
+								<div class="product-body">
+									<p class="product-category">Categories</p>
+									<h3 class="product-name"><a href="#">les noms des produits vont ici</a></h3>
+									<h4 class="product-price">980.00FCFA <del class="product-old-price">990.00FCFA</del></h4>
+								</div>
+							</div>
+
+							<div class="product-widget">
+								<div class="product-img">
+									<img src="./img/" alt="">
+								</div>
+								<div class="product-body">
+									<p class="product-category">Categories</p>
+									<h3 class="product-name"><a href="#">les noms des produits vont ici</a></h3>
+									<h4 class="product-price">980.00FCFA <del class="product-old-price">990.00FCFA</del></h4>
+								</div>
+							</div>
+						</div>
+						 /aside Widget -->
+					</div>
+					<!-- /ASIDE -->
+
+					<!-- STORE -->
+					<div id="store" class="col-md-9">
+						<!-- store top filter
+						<div class="store-filter clearfix">
+							<div class="store-sort">
+								<label>
+									Sort By:
+									<select class="input-select">
+										<option value="0">Populaire</option>
+										<option value="1">Position</option>
+									</select>
+								</label>
+
+								<label>
+									Show:
+									<select class="input-select">
+										<option value="0">20</option>
+										<option value="1">50</option>
+									</select>
+								</label>
+							</div>
+							<ul class="store-grid">
+								<li class="active"><i class="fa fa-th"></i></li>
+								<li><a href="#"><i class="fa fa-th-list"></i></a></li>
+							</ul>
+						</div>-->
+						<!-- /store top filter -->
+
+						<!-- store products -->
+						<div class="row">
+							<!-- product -->
+							{% for p in produits%}
+							<div class="col-md-3">
+								<div class="product">
+									<a href="{% url 'page_produit' p.id %}">
+									<div class="product-img" style="height:150px;">
+										<div id="product-main-img position-relative" style="position: relative !important;">
+										{% for i in image %}
+											{% if  p.album == i.album %}
+												<div style="position: absolute !important;top:0;" class="product-preview position-absolute">
+													<img src="media/{{i.image}}" alt="">
+												</div>
+											{% endif %}
+										{% endfor %}
+										</div>
+										<div class="product-label">
+											<!--<span class="sale">-30%</span>-->
+											<span class="new">{{p.status}}</span>
+										</div>
+									</div>
+									</a>
+									<div class="product-body">
+										<p class="product-category">{{p.cathegorie}}</p>
+										<h3 class="product-name"><a href="{% url 'page_produit' p.id %}">{{p.nom_produit}}</a></h3>
+										<h4 class="product-price">{{p.prix_promo}}<del class="product-old-price">{{p.prix_produit}}</del></h4>
+										<div >
+											<a href="{% url 'page_produit' p.id %}">
+												<button style="color: orange" class="btn btn-waring"></i>voire</button>
+											</a>
+											<button id="{{p.id}}" class=" productb btn btn-success"><i class="fa fa-shopping-cart"></i>panier</button>
+										</div>
+										<!--<div class="product-btns">
+											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">ajouter a la liste des souhaits</span></button>
+											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">ajouter  pour comparer</span></button>
+											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Aperçu rapide</span></button>
+										</div>-->
+									</div>
+									<div class="add-to-cart">
+
+
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+							<!-- /product -->
+						<!-- /store products -->
+
+						<!-- store bottom filter -->
+						<div class="row mt-3">
+							<div class="col-md-3 offset-md-4"></div>
+								<ul class="pagination">
+									{% if produits.has_previous %}
+										<li class="page-item">
+											<a class="page-link" href="?page={{ produits.previous_page_number }} ">precedent</a>
+										</li>
+									{%endif%}
+										<li class="page-item active">
+											<a class="page-link" href="?page={{ produits.number }}">{{ produits.number }}</a>
+										</li>
+									{% if produits.has_next %}
+										<li class="page-item">
+											<a class="page-link" href="?page={{ produits.next_page_number }}">suivant</a>
+										</li>
+									{%endif%}
+								</ul>
+							</div>
+						</div>
+						<!-- /store bottom filter -->
+					</div>
+					<!-- /STORE -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+		<!-- NEWSLETTER -->
+		<div id="newsletter" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="newsletter">
+							<p>INSCRIVER VOUS POUR LE <strong>BULLETIN</strong></p>
+							<form method="post" action="">
+								<input class="input" type="email" placeholder="Entrer votre email@">
+								<button class="newsletter-btn"><i class="fa fa-envelope"></i> S'abonner</button>
+							</form>
+							<ul class="newsletter-follow">
+								<li>
+									<a href="#"><i class="fa fa-facebook"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-pinterest"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /NEWSLETTER -->
+<script>
+       let prda="";
+    let nbr=0;
+    panier=document.getElementById("panier");
+    products=document.getElementsByClassName("productb");
+
+        for(let i=0;i<products.length;i++)
+        {
+            products[i].addEventListener("click",function()
+         {
+
+         if (prda=="")
+         {
+          prda+=this.getAttribute("id");
+         }
+         else
+         {
+         prda+=","+this.getAttribute("id");
+         }
+
+           nbr++;
+           panier.innerHTML=nbr;
+
+
+         }
+
+         )
+        }
+     </script>
+{% endblock %}

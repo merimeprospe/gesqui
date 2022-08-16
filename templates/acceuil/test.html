@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for p in image %}
+    {{p.nom_image}}
+    {{ p.imge}}
+    <img src="{% static 'images/logo.png' %}" alt="">
+{% endfor %}
+</body>
+</html>

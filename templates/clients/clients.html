@@ -1,0 +1,13 @@
+{%  extends 'main.html' %}
+
+
+{% block contenu %}
+{% if request.user.is_authenticated%}
+    <p>salut {{request.user}}</p>
+    <a href="{% url 'logout' %}">logout</a>
+{% else %}
+    <p>vous n'avez pas de compte</p>
+{% endif%}
+
+
+{% endblock %}

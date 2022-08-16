@@ -1,0 +1,371 @@
+{%  extends 'main.html' %}
+{% load static %}
+{% block contenu %}
+<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li class="active"><a href="{% url 'acceuil' %}">Acceuil</a></li>
+						<li><a href="{% url 'boutique' %}">Boutique</a></li>
+						<li><a href="{% url 'service' %}">Nos-services</a></li>
+						<li><a href="{% url 'a_propos' %}">Apropos</a></li>
+						<li><a href="{% url 'contact' %}">Contact</a></li>
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="{% static 'images/shop01 .png' %}" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Materiels<br>De Maconnerie</h3>
+								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="{% static 'images/shop03.png' %}" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Materiels<br>De Plomberie</h3>
+								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="{% static 'images/shop02.png' %}" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Materiels<br>De l'electricite</h3>
+								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h3 class="title">Noveaux produits</h3>
+							<!--<div class="section-nav">
+								<ul class="section-tab-nav tab-nav">
+									<li class="active"><a data-toggle="tab" href="#tab1">Diseign</a></li>
+									<li><a data-toggle="tab" href="#tab1">Electricite</a></li>
+									<li><a data-toggle="tab" href="#tab1">Maconerie</a></li>
+									<li><a data-toggle="tab" href="#tab1">Plomberie</a></li>
+								</ul>-->
+							</div>
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab1" class="tab-pane active">
+									<div class="products-slick" data-nav="#slick-nav-1">
+										<!-- product -->
+										{% for p in produits %}
+										<div class="col-md-3">
+											<div class="product">
+												<a href="{% url 'page_produit' p.id %}">
+												<div class="product-img" style="height:150px;">
+													<div id="product-main-img position-relative" style="position: relative !important;">
+													{% for i in image %}
+														{% if  p.album == i.album %}
+															<div style="position: absolute !important;top:0;" class="product-preview position-absolute">
+																<img src="media/{{i.image}}" alt="">
+															</div>
+														{% endif %}
+													{% endfor %}
+													</div>
+													<div class="product-label">
+														<!--<span class="sale">-30%</span>-->
+														<span class="new">{{p.status}}</span>
+													</div>
+												</div>
+												</a>
+												<div class="product-body">
+													<p class="product-category">{{p.cathegorie}}</p>
+													<h3 class="product-name"><a href="{% url 'page_produit' p.id %}">{{p.nom_produit}}</a></h3>
+													<h4 class="product-price">{{p.prix_promo}}<del class="product-old-price">{{p.prix_produit}}</del></h4>
+													<div >
+														<a href="{% url 'page_produit' p.id %}">
+															<button style="color: orange" class="btn btn-waring"></i>voire</button>
+														</a>
+														<button id="{{p.id}}" class="productb btn btn-success"><i class="fa fa-shopping-cart"></i>panier</button>
+													</div>
+													<!--<div class="product-btns">
+														<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">ajouter a la liste des souhaits</span></button>
+														<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">ajouter  pour comparer</span></button>
+														<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Aperçu rapide</span></button>
+													</div>-->
+												</div>
+												<div class="add-to-cart">
+
+
+												</div>
+											</div>
+										</div>
+										{% endfor %}
+										<!-- /product -->
+									</div>
+									<div id="slick-nav-1" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+					</div>
+					<!-- Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- HOT DEAL SECTION -->
+		<div id="hot-deal" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="hot-deal">
+							<ul class="hot-deal-countdown">
+								<li>
+									<div>
+										<h3>02</h3>
+										<span>Days</span>
+									</div>
+								</li>
+								<li>
+									<div>
+										<h3>10</h3>
+										<span>Hours</span>
+									</div>
+								</li>
+								<li>
+									<div>
+										<h3>34</h3>
+										<span>Mins</span>
+									</div>
+								</li>
+								<li>
+									<div>
+										<h3>60</h3>
+										<span>Secs</span>
+									</div>
+								</li>
+							</ul>
+							<h2 class="text-uppercase">hot deal this week</h2>
+							<p>New Collection Up to 50% OFF</p>
+							<a class="primary-btn cta-btn" href="#">Shop now</a>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /HOT DEAL SECTION -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h3 class="title">SOLDE</h3>
+							<!--<div class="section-nav">
+								<ul class="section-tab-nav tab-nav">
+									<li class="active"><a data-toggle="tab" href="#tab2">Diseign</a></li>
+									<li><a data-toggle="tab" href="#tab2">Electricite</a></li>
+									<li><a data-toggle="tab" href="#tab2">Maconerie</a></li>
+									<li><a data-toggle="tab" href="#tab2">Plomberie</a></li>
+								</ul>
+							</div>-->
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab2" class="tab-pane fade in active">
+									<div class="products-slick" data-nav="#slick-nav-2">
+										<!-- product -->
+										{% for p in produits1 %}
+										<div class="col-md-3">
+											<div class="product">
+												<a href="{% url 'page_produit' p.id %}">
+												<div class="product-img" style="height:150px;">
+													<div id="product-main-img position-relative" style="position: relative !important;">
+													{% for i in image %}
+														{% if  p.album == i.album %}
+															<div style="position: absolute !important;top:0;" class="product-preview position-absolute">
+																<img src="media/{{i.image}}" alt="">
+															</div>
+														{% endif %}
+													{% endfor %}
+													</div>
+													<div class="product-label">
+														<!--<span class="sale">-30%</span>-->
+														<span class="new">{{p.status}}</span>
+													</div>
+												</div>
+												</a>
+												<div class="product-body">
+													<p class="product-category">{{p.cathegorie}}</p>
+													<h3 class="product-name"><a href="{% url 'page_produit' p.id %}">{{p.nom_produit}}</a></h3>
+													<h4 class="product-price">{{p.prix_promo}}<del class="product-old-price">{{p.prix_produit}}</del></h4>
+													<div >
+														<a href="{% url 'page_produit' p.id %}">
+															<button style="color: orange" class="btn btn-waring"></i>voire</button>
+														</a>
+														<button id="{{p.id}}" class=" productb btn btn-success"><i class="fa fa-shopping-cart"></i>panier</button>
+													</div>
+													<!--<div class="product-btns">
+														<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">ajouter a la liste des souhaits</span></button>
+														<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">ajouter  pour comparer</span></button>
+														<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Aperçu rapide</span></button>
+													</div>-->
+												</div>
+												<div class="add-to-cart">
+
+
+												</div>
+											</div>
+										</div>
+										{% endfor %}
+										<!-- /product -->
+									</div>
+									<div id="slick-nav-2" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+					</div>
+					<!-- /Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+
+		<!-- NEWSLETTER -->
+		<div id="newsletter" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="newsletter">
+							<p>envoiyer un  <strong>MESSAGE</strong></p>
+							<form>
+								<input class="input" type="email" placeholder="Entrez votre Email">
+								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Envoiyer</button>
+							</form>
+							<ul class="newsletter-follow">
+								<li>
+									<a href="#"><i class="fa fa-facebook"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-pinterest"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+<script>
+       let prda="";
+    let nbr=0;
+    panier=document.getElementById("panier");
+    products=document.getElementsByClassName("productb");
+
+        for(let i=0;i<products.length;i++)
+        {
+            products[i].addEventListener("click",function()
+         {
+
+         if (prda=="")
+         {
+          prda+=this.getAttribute("id");
+         }
+         else
+         {
+         prda+=","+this.getAttribute("id");
+         }
+
+           nbr++;
+           panier.innerHTML=nbr;
+           document.getElementById("pagnier").setAttribute("href","{% url 'pagnier'%}?items="+prda)
+
+
+         }
+
+         )
+        }
+     </script>
+		{% endblock %}
+
+

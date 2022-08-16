@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-compatible" content="ie=edge">
+        <title>Formulaire Client</title>
+    </head>
+    <body>
+         <div class="form">
+            <h3 class titre> Inscription</h3>
+            <form  method="post" class="post-form">
+                {% csrf_token %}
+                {% for champ in form %}
+                {{champ.label}}
+                {{champ}}
+                {%endfor%}
+
+                <input type="submit" value="Crée">
+
+            </form>
+        </div>
+    </body>
+
+
+    <!-- code css-->
+    <style>
+       body{
+            margin: 0px;
+            padding: 0px;
+            background-image: url("{% static 'images/ConnexionVendeur.jpg' %}");
+            -webkit-background-size: cover;
+            background-size: cover;
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .form{
+            margin-top: 90px;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding-top: 5px;
+            padding-left: 100px;
+            padding-right: 100px;
+            border-radius: 15px;
+            border: 0px solid #fff ;
+            box-shadow: 4px 4px 8px black;
+        }
+
+        .titre{
+            margin: 0;
+            padding: 0 0 20px;
+            font-weight: bold;
+            columns: rgb(255, 255, 255);
+            text-align: center;
+        }
+        .form p{
+            margin: 0;
+            padding: 0;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+        }
+        .form input, select{
+            margin-bottom: 10px;
+            width: 100%;
+            border-bottom: 1px solid rgb(255, 255, 255);
+            background-color: transparent;
+        }
+        .form input[type=text] , .form input[type=number], .form input[type=email], form input[type=tel], form input[type=password]{
+            border: none;
+            border-bottom: 1px solid rgb(90, 87, 87);
+            background-color: transparent;
+            outline: none;
+            height: 20px;
+            display: 10px;
+            color: rgb(0, 0, 0);
+        }
+        ::placeholder{
+            color: rgb(0, 0, 0);
+        }
+        .form select{
+            margin-top: 20px;
+            padding: 10px, 0;
+        }
+        .form input[type=submit]{
+            border: none;
+            height: 40px;
+            outline: none;
+            font-size: 15px;
+            background-color:#F48029;
+            border-radius: 20px;
+        }
+    </style>
+
+</html>

@@ -1,0 +1,83 @@
+{%  extends 'main.html' %}
+
+
+{% block contenu %}
+
+<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li><a href="{% url 'acceuil' %}">Acceuil</a></li>
+						<li><a href="{% url 'boutique' %}">Boutique</a></li>
+						<li><a href="{% url 'service' %}">Nos-services</a></li>
+						<li><a href="{% url 'a_propos' %}">Apropos</a></li>
+						<li class="active"><a href="{% url 'contact' %}">Contact</a></li>
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+   <section class="section1">
+	   <div class="container1">
+		   <h2> Contacter nous en remplissant se formulaire </h2>
+				<form method="post" >
+					{% csrf_token %}
+					<div class="row100">
+						<div class="col">
+							<div class="inputBox">
+								<input type="text" name="nom" required="required">
+								<span class="text">Nom</span>
+								<span class="line"></span>
+							</div>
+						</div>
+						<div class="col">
+							<div class="inputBox">
+								<input type="text" name="prenom" required="required">
+								<span class="text">Prenom</span>
+								<span class="line"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row100">
+						<div class="col">
+							<div class="inputBox">
+								<input type="text" name="adresse_email" required="required">
+								<span class="text">Email</span>
+								<span class="line"></span>
+							</div>
+						</div>
+						<div class="col">
+							<div class="inputBox">
+								<input type="text" name="tel" required="required">
+								<span class="text">Telephone</span>
+								<span class="line"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row100">
+						<div class="col">
+							<div class="inputBox textarea">
+								<textarea required="required" name="message"></textarea>
+								<span class="text">votre message ici...</span>
+								<span class="line"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row100">
+						<div class="col">
+							<input type="submit" value="Envoyer">
+						</div>
+					</div>
+				</form>
+	   </div>
+   </section>
+        <!--Fin de code-->
+
+{% endblock %}
